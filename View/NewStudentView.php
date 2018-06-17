@@ -30,6 +30,10 @@ if (empty($_POST["submit"])) {
             <input type="text" class="form-control" name="naam" required placeholder="Enter LastName">
             <label for="emailInput">email</label>
             <input type="text" class="form-control" name="email" required placeholder="Enter Email">
+            <label for="paswordInput">paswoord</label>
+            <input type="password" class="form-control" name="paswoord" required placeholder="Enter Password">
+            <label  for="adminInput">Admin</label>
+            <input type="checkbox" class="left" name="admin"  placeholder="Is Admin?" >
         </div>
         <button type="submit" class="btn btn-primary" name="submit" >Save</button>
         <button id="resetButton" class="btn btn-primary" type="reset" name="reset" >Cancel</button>

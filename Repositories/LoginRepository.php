@@ -5,7 +5,6 @@
  * Date: 08/06/2018
  * Time: 22:42
  */
-
 class LoginRepository extends BaseRepository
 {
     /**
@@ -19,12 +18,18 @@ class LoginRepository extends BaseRepository
         $conn = $this->GetConnection();
         $email = $login["uname"];
         $password = $login["psw"];
-        $getResults = $conn->prepare("SELECT student.StudentID
+        $getResults = $conn->prepare("SELECT student.StudentID, student.email, student.IsAdmin
           FROM paswoord inner join student 
           on paswoord.StudentID = student.StudentID
           where Email = ? and Paswoord = ?");
         $getResults->execute([$email,$password]);
-        $Results = $getResults->fetchAll();
-        return $Results;
+        $results = $getResults->fetch();
+        if ($results === false){
+            $emptyArray = [];
+            return $emptyArray;
+        }else{
+            return $results;
+        }
+
     }
 }

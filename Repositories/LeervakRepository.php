@@ -5,7 +5,6 @@
  * Date: 07/06/2018
  * Time: 21:29
  */
-
 class LeervakRepository extends BaseRepository
 {
     /**
@@ -15,7 +14,7 @@ class LeervakRepository extends BaseRepository
      */
     public function GetLeervakken() :array {
         $conn = $this->GetConnection();
-        $sql = "SELECT LeerVakID, Vak FROM leervak";
+        $sql = "SELECT LeerVakID, Naam FROM leervak";
         $data =  $conn->query($sql)->fetchAll();
         return $data;
     }
@@ -28,8 +27,9 @@ class LeervakRepository extends BaseRepository
      */
     public function CreateLeervak(Leervak $leervak) :int{
         $conn = $this->GetConnection();
-        $sql = "INSERT INTO leervak (Vak) values (?)";
-        $conn->prepare($sql)->execute([$leervak->GetCourse()]);
+        $sql = "INSERT INTO leervak (Naam) values (?)";
+        $data = $leervak->GetCourse();
+        $conn->prepare($sql)->execute([$data]);
         return $conn->lastInsertId();
     }
 }

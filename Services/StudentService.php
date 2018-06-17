@@ -5,11 +5,13 @@
  * Date: 04/06/2018
  * Time: 22:49
  */
+
+include ("../Model/Student.php");
+
+include ("../Model/Password.php");
 include ("../Repositories/StudentRepository.php");
 include ("../Repositories/LeervakRepository.php");
 include ("../Repositories/ResultaatRepository.php");
-include ("../Model/Student.php");
-
 /**
  * Class StudentService
  */
@@ -23,16 +25,23 @@ class StudentService
      */
     public function CreateStudent(array $student){
         $newStudent = new Student();
+        $newPassword = new Password();
+        $newPassword->SetPassword($student["paswoord"]);
         $newStudent->SetFirstName($student["voornaam"]);
         $newStudent->SetName($student["naam"]);
         $newStudent->SetEmail($student["email"]);
+        if ($student["admin"] === "on"){
+            $newStudent->SetIsAdmin(true);
+        }else{
+            $newStudent->SetIsAdmin(false);
+        }
         $Repo = new StudentRepository();
         $studentToCompare = $Repo->GetStudentByEmail($newStudent->GetEmail());
         if ($studentToCompare){
             echo ("Er bestaat reeds een student met dit email adres");
         }else{
             $leervakken = $this->GetActiveLeervakken();
-            $studentId = $Repo->CreateStudent($newStudent);
+            $studentId = $Repo->CreateStudent($newStudent, $newPassword);
             $this->CreateResultaat($studentId, $leervakken);
             header('Location:index.php');
         }
@@ -58,4 +67,6 @@ class StudentService
         $repo = new ResultaatRepository();
         $repo->CreateResultsWithNewStudent($studentId, $leervak);
     }
+
+
 }

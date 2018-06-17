@@ -15,7 +15,7 @@ abstract class BaseRepository
     public function GetConnection()
     {
         try {
-            $conn = new PDO("mysql:dbname=ExamenPHP", "root", NULL);
+            $conn = new PDO("mysql:dbname=examenphp", "root", NULL);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Error connecting to SQL Server");

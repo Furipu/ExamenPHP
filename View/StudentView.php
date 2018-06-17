@@ -5,14 +5,14 @@ ob_start();
 if (!isset($_GET["LogOut"])) {
     if (isset($_GET['logout'])) {
         $_COOKIE["loginStudent"] = setcookie("loginStudent", "", time() - 3600, '/');
-        $_COOKIE["loginAdmin"] = setcookie("loginAdmin", "", time() - 3600,'/');
+        $_COOKIE["loginAdmin"] = setcookie("loginAdmin", "", time() - 3600, '/');
         header('Location: LoginForm.php');
         exit();
     }
     ob_end_flush();
 
     $resultaat = new ResultaatService();
-    $data = $resultaat->GetHeaderandBody();
+    $data = $resultaat->GetHeaderAndBodyForAStudent($_COOKIE["loginStudent"]);
     if (!isset($_POST["Results"])) {
         $post = $_POST;
         if (empty($post)) {
@@ -20,10 +20,7 @@ if (!isset($_GET["LogOut"])) {
             $resultaat->UpdateResult($_POST);
         }
     }
-
-
 }
-
 ?>
 <head>
     <link rel="stylesheet" type="text/css" media="all" href="../Styles/css/bootstrap.css"/>
@@ -40,17 +37,6 @@ if (!isset($_GET["LogOut"])) {
         </ul>
     </div>
 </nav>
-
-<div id="StudentDiv">
-    <form action="NewStudentView.php">
-        <button type="submit" class="btn btn-default">New Student</button>
-    </form>
-</div>
-<div id="VakDiv">
-    <form action="NewLeervakView.php">
-        <button type="submit" class="btn btn-default">New Vak</button>
-    </form>
-</div>
 <br>
 <br>
 <iframe name="votar" style="display: none"></iframe>
@@ -67,36 +53,28 @@ if (!isset($_GET["LogOut"])) {
             <tr>
             </thead>
             <tbody>
+            <tr>
 
-            <?php
-            foreach ($data[1] as $item) {
-                echo "<tr>";
-                $firstItem = $item[0];
-                echo "<th scope='row'>$firstItem[1] $firstItem[2]</th>";
-                foreach ($item as $value) {
-                    if ($value[7] > 0) {
-                        echo "<td> <input type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='$value[7]' name='$value[6]'>                            
-                         </td>";
+                <?php
+                $item = $data[1];
+                echo "<th scope='row'>$item[1] $item[2]</th>";
+                $loops = count($data);
+                for ($x = 1; $x < $loops; $x++) {
+                    echo "<td>";
+                    $item = $data[$x];
+                    if ($item[7] > 0) {
+                        echo " <input readonly type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='$item[7]' name='$item[6]'>                            
+                         ";
                     } else {
-                        echo "<td> <input type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='' name='$value[6]'>
-                         </td>";
+                        echo " <input readonly type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='' name='$item[6]'>
+                         ";
                     }
+                    echo "</td>";
                 }
-                echo "</tr>";
-            }
-            ?>
+                ?>
+            </tr>
             </tbody>
         </table>
     </div>
     <br>
-    <input type=submit value="Save" class="btn btn-primary">
 </form>
-
-
-
-
-
-
-
-
-

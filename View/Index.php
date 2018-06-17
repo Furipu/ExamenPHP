@@ -1,8 +1,12 @@
-<?php require_once "../Helpers/ClassLoader.php";
+<?php
+//include ("../Helpers/ClassLoader.php");
+include ("../Services/LoginService.php");
+$login = LoginService::GetInstance();
+if ($_COOKIE["loginAdmin"] && $_COOKIE["loginAdmin"] != "1"){
+    header('Location: TabelView.php'); exit();
+}
+else{header('Location: LoginForm.php'); exit();}
 
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -13,8 +17,8 @@ header("Pragma: no-cache");
 
     <link rel="stylesheet" type="text/css" media="all" href="../Styles/css/bootstrap.css" />
 
-
 </head>
+
 <body>
 <!-- Add your site or application content here -->
 <header>

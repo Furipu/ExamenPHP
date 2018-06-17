@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class ResultaatRepository
  */
@@ -16,12 +15,24 @@ class ResultaatRepository extends BaseRepository
     public function GetAllResults() :array
     {
         $conn = $this->GetConnection();
-        $getResults = $conn->prepare("SELECT student.StudentID, student.voornaam, student.achternaam, leervak.LeerVakID, leervak.Vak, resultaat.ResultaatID,  resultaat.cijfer
-          FROM resultaat inner join student 
+        $getResults = $conn->prepare("SELECT student.StudentID, student.Voornaam, student.Naam, student.IsAdmin, leervak.LeerVakID, leervak.Naam, resultaat.ResultaatID,  resultaat.cijfer
+          FROM resultaat inner join student
           on resultaat.studentid = student.studentid
           inner join leervak
           on resultaat.leervakid = leervak.leervakid");
         $getResults->execute();
+        $Results = $getResults->fetchAll();
+        return $Results;
+    }
+
+    public function GetResultForAStudent(string $email){
+        $conn = $this->GetConnection();
+        $getResults = $conn->prepare("SELECT student.StudentID, student.Voornaam, student.Naam, student.IsAdmin, leervak.LeerVakID, leervak.Naam, resultaat.ResultaatID,  resultaat.cijfer
+          FROM resultaat inner join student
+          on resultaat.studentid = student.studentid
+          inner join leervak
+          on resultaat.leervakid = leervak.leervakid where email = ?");
+        $getResults->execute([$email]);
         $Results = $getResults->fetchAll();
         return $Results;
     }

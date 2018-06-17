@@ -30,7 +30,7 @@ if (empty($_POST["submit"])) {
 <form name="newLeervak" id="newCreationForm" method="post">
     <div class="form-group">
         <label for="vakInput">vak</label>
-        <input type="text" class="form-control" name="vakInput" id="vakInput"  placeholder="Enter vak">
+        <input type="text" class="form-control" name="vakInput" id="vakInput" required placeholder="Enter vak">
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
     <button type="reset" id="resetButton" class="btn btn-primary">Cancel</button>

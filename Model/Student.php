@@ -8,22 +8,12 @@
 
 class Student
 {
-    /**
-     * @var
-     */
+
     private $FirstName;
-    /**
-     * @var
-     */
     private $Name;
-    /**
-     * @var
-     */
     private $Email;
-    /**
-     * @var
-     */
     private $ID;
+    private $IsAdmin;
 
     /**
      * @param string $firstName
@@ -53,6 +43,9 @@ class Student
     {
         $this->ID = $id ;
     }
+    public function SetIsAdmin(bool $isAdmin){
+        $this->IsAdmin = $isAdmin;
+    }
 
     /**
      * @return string
@@ -81,5 +74,9 @@ class Student
     public function GetID(): int
     {
         return $this->ID;
+    }
+
+    public function GetIsAdmin(){
+        return $this->IsAdmin;
     }
 }

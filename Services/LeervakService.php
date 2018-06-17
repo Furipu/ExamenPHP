@@ -5,11 +5,10 @@
  * Date: 08/06/2018
  * Time: 14:57
  */
+include ("../Model/LeerVak.php");
 include ("../Repositories/StudentRepository.php");
 include ("../Repositories/LeervakRepository.php");
 include ("../Repositories/ResultaatRepository.php");
-include ("../Model/LeerVak.php");
-
 /**
  * Class LeervakService
  */
