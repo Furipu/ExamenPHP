@@ -1,6 +1,8 @@
 <?php
 /**
  * Class ResultaatRepository
+ *
+ * Connection to database for Resultaat
  */
 class ResultaatRepository extends BaseRepository
 {
@@ -25,7 +27,15 @@ class ResultaatRepository extends BaseRepository
         return $Results;
     }
 
-    public function GetResultForAStudent(string $email){
+    /**
+     * get result for a specific student from database
+     *
+     * @param string $email
+     * @return array
+     * @pre email as string
+     * @post return a list of resultaat
+     */
+    public function GetResultForAStudent(string $email): array{
         $conn = $this->GetConnection();
         $getResults = $conn->prepare("SELECT student.StudentID, student.Voornaam, student.Naam, student.IsAdmin, leervak.LeerVakID, leervak.Naam, resultaat.ResultaatID,  resultaat.cijfer
           FROM resultaat inner join student
@@ -41,6 +51,7 @@ class ResultaatRepository extends BaseRepository
      * Update the values of resultaat in the database
      *
      * @param array $resultaat
+     * @pre an array of resultaat
      */
     public function UpdateResults(array $resultaat) {
         $conn = $this->GetConnection();
@@ -55,6 +66,7 @@ class ResultaatRepository extends BaseRepository
      *
      * @param int $studentId
      * @param array $leervakken
+     * @pre an id of student as int and an array of leervakken objects
      */
     public function CreateResultsWithNewStudent(int $studentId, array $leervakken){
         $conn = $this->GetConnection();
@@ -69,6 +81,7 @@ class ResultaatRepository extends BaseRepository
      *
      * @param int $leervakId
      * @param array $studenten
+     * @pre an leervak id as int and an array of student objects
      */
     public function CreateResultWithNewLeervak(int $leervakId, array $studenten){
         $conn = $this->GetConnection();

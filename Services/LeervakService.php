@@ -11,6 +11,8 @@ include ("../Repositories/LeervakRepository.php");
 include ("../Repositories/ResultaatRepository.php");
 /**
  * Class LeervakService
+ *
+ * Business logic for Leervak
  */
 class LeervakService
 {
@@ -50,6 +52,7 @@ class LeervakService
      *
      * @param int $leervakId
      * @param array $studenten
+     * @pre leervak id as int and an array of student objects
      */
     public function CreateResultaat(int $leervakId, array $studenten){
         $repo = new ResultaatRepository();
@@ -62,8 +65,10 @@ class LeervakService
      * @param string $newLeervak
      * @param array $activeLeervakken
      * @return bool return true if string is part of array
+     * @pre a leervak as string and an array of leervak objects
+     * @post bool return true if string is part of array
      */
-    public function CheckIfValueExist(string $newLeervak, array $activeLeervakken){
+    public function CheckIfValueExist(string $newLeervak, array $activeLeervakken): bool{
         $exist = false;
         foreach ($activeLeervakken as $value){
             if (in_array($newLeervak,$value)){

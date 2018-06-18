@@ -8,6 +8,12 @@
 
 include "../Repositories/StudentRepository.php";
 include "../Repositories/LoginRepository.php";
+
+/**
+ * Class LoginService
+ *
+ * Business logic for Login
+ */
 class LoginService
 {
     private $repo;

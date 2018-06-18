@@ -1,25 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vanda
- * Date: 03/06/2018
- * Time: 00:32
- */
 
+
+/**
+ * Class LeerVak
+ *
+ * Create model for Leervak
+ */
 class LeerVak
 {
 
-    /**
-     * @var
-     */
+
     private $Course;
-    /**
-     * @var
-     */
+
     private $ID;
 
     /**
      * @param string $name
+     *
+     * Set property name
+     * @pre recieve a string for the name
+     *
      */
     public function SetCourse(string $name)
     {
@@ -28,6 +28,9 @@ class LeerVak
 
     /**
      * @param int $id
+     *
+     * Set property id
+     * @pre recieve a int for the id
      */
     public function SetID(int $id)
     {
@@ -36,6 +39,9 @@ class LeerVak
 
     /**
      * @return string
+     *
+     * Return the coursename
+     *
      */
     public function GetCourse(): string
     {
@@ -44,6 +50,8 @@ class LeerVak
 
     /**
      * @return int
+     *
+     * return de course ID
      */
     public function GetID(): int
     {

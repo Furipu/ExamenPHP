@@ -14,6 +14,8 @@ include ("../Repositories/LeervakRepository.php");
 include ("../Repositories/ResultaatRepository.php");
 /**
  * Class StudentService
+ *
+ * Business logic for Student
  */
 class StudentService
 {
@@ -22,6 +24,7 @@ class StudentService
      * Create a new object Student and send it to the repository
      *
      * @param array $student
+     * @pre an array of students
      */
     public function CreateStudent(array $student){
         $newStudent = new Student();
@@ -62,6 +65,7 @@ class StudentService
      *
      * @param int $studentId
      * @param array $leervak
+     * @pre a student id as int and an array of leervak objects
      */
     public function CreateResultaat(int $studentId, array $leervak){
         $repo = new ResultaatRepository();

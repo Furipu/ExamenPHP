@@ -1,38 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vanda
- * Date: 03/06/2018
- * Time: 00:32
- */
-//include "Student.php";
-//include "LeerVak.php";
+
 
 /**
  * Class Resultaat
+ *
+ * Create model for Resultaat
  */
 class Resultaat
 {
-    /**
-     * @var
-     */
     private $Grade;
-    /**
-     * @var
-     */
     private $ID;
-    /**
-     * @var
-     */
     private $Student;
-    /**
-     * @var
-     */
     private $LeerVak;
 
 
     /**
      * @param int $grade
+     *
+     * set the grade of resultaat
+     * @pre int as grade
      */
     public function SetGrade(int $grade)
     {
@@ -40,7 +26,10 @@ class Resultaat
     }
 
     /**
+     * set id of resultaat
+     *
      * @param int $id
+     * @pre int as id
      */
     public function SetID(int $id)
     {
@@ -48,7 +37,10 @@ class Resultaat
     }
 
     /**
+     * set student object as student
+     *
      * @param Student $student
+     * @pre an object student
      */
     public function SetStudent(Student $student)
     {
@@ -56,7 +48,10 @@ class Resultaat
     }
 
     /**
+     * set leervak object as leervak
+     *
      * @param LeerVak $leerVak
+     * @pre an object leervak
      */
     public function SetLeerVak(LeerVak $leerVak)
     {
@@ -64,6 +59,8 @@ class Resultaat
     }
 
     /**
+     * return the grade of leervak
+     *
      * @return int
      */
     public function GetGrade(): int
@@ -72,6 +69,8 @@ class Resultaat
     }
 
     /**
+     * return the id of leervak
+     *
      * @return int
      */
     public function GetID(): int
@@ -80,6 +79,8 @@ class Resultaat
     }
 
     /**
+     * return the object of student
+     *
      * @return Student
      */
     public function GetStudent(): Student
@@ -88,6 +89,8 @@ class Resultaat
     }
 
     /**
+     * return the object of leervak
+     *
      * @return LeerVak
      */
     public function GetLeerVak(): LeerVak

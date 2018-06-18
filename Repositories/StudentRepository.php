@@ -8,6 +8,8 @@
 include "BaseRepository.php";
 /**
  * Class StudentRepository
+ *
+ * Connection to database for Student
  */
 class StudentRepository extends BaseRepository
 {
@@ -23,6 +25,14 @@ class StudentRepository extends BaseRepository
         return $data;
     }
 
+    /**
+     * Get a student id by email from database
+     *
+     * @param string $email
+     * @return mixed
+     * @pre an email as string
+     * @post a student if student available
+     */
     public function GetStudentIdByEmail(string $email) {
         $conn = $this->GetConnection();
         $sql = 'SELECT StudentID FROM student where email = ?';
@@ -38,6 +48,8 @@ class StudentRepository extends BaseRepository
      *
      * @param string $email
      * @return bool
+     * @pre an email as string
+     * @post a boolean if student exist
      *
      */
     public function GetStudentByEmail (string $email) : bool {
@@ -58,6 +70,8 @@ class StudentRepository extends BaseRepository
      *
      * @param Student $student, password $paswoord
      * @return int
+     * @pre a student object and a  password object
+     * @post the id of the student created
      */
     public function CreateStudent(Student $student, Password $paswoord) :int{
         $conn = $this->GetConnection();

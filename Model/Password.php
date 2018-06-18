@@ -1,11 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vanda
- * Date: 17/06/2018
- * Time: 17:52
- */
 
+/**
+ * Class Password
+ *
+ * Create model for Password
+ */
 class Password
 {
     private $StudentId;

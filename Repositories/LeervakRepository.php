@@ -1,9 +1,9 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: vanda
- * Date: 07/06/2018
- * Time: 21:29
+ * Class LeervakRepository
+ *
+ * Connection to database for Leervak
  */
 class LeervakRepository extends BaseRepository
 {
@@ -24,6 +24,8 @@ class LeervakRepository extends BaseRepository
      *
      * @param Leervak $leervak
      * @return int
+     * @pre get an object leervak
+     * @post return an int of last inserted id
      */
     public function CreateLeervak(Leervak $leervak) :int{
         $conn = $this->GetConnection();

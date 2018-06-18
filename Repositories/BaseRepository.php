@@ -1,11 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vanda
- * Date: 05/06/2018
- * Time: 22:03
- */
 
+
+/**
+ * Class BaseRepository
+ *
+ * BaseRepository with connection to database
+ */
 abstract class BaseRepository
 {
     /**

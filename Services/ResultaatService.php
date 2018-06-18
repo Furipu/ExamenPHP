@@ -11,6 +11,12 @@ include ("../Repositories/ResultaatRepository.php");
 include ("../Model/Student.php");
 include ("../Model/LeerVak.php");
 include ("../Model/Resultaat.php");
+
+/**
+ * Class ResultaatService
+ *
+ * Business logic for Resultaat
+ */
 class ResultaatService
 {
 
@@ -69,6 +75,13 @@ class ResultaatService
         }
     }
 
+    /**
+     * fill the list with a specific student
+     *
+     * @param string $email
+     * @pre email as a string
+     *
+     */
     public function GetResultForAStudent(string $email){
         $this->RawList = $this->repo->GetResultForAStudent($email);
         foreach ($this->RawList as $value) {
@@ -119,6 +132,8 @@ class ResultaatService
      *
      * @param string $email
      * @return array
+     * @pre email as string
+     * @post an array with the headers and body for table
      */
     public function GetHeaderAndBodyForAStudent(string $email) :array{
         $this->GetResultForAStudent($email);
@@ -140,6 +155,7 @@ class ResultaatService
      * send the update result to the repository
      *
      * @param array $data
+     * @pre an array of results
      */
     public function UpdateResult(array $data){
         $this->repo->UpdateResults($data);

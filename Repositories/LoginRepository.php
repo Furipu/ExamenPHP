@@ -1,9 +1,9 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: vanda
- * Date: 08/06/2018
- * Time: 22:42
+ * Class LoginRepository
+ *
+ * Connection to database for Login
  */
 class LoginRepository extends BaseRepository
 {
