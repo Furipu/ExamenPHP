@@ -4,11 +4,13 @@
  * Class Password
  *
  * Create model for Password
+ * @property int $_studentId -> id of the student
+ * @property  string $_password -> password of the student
  */
 class Password
 {
-    private $StudentId;
-    private $password;
+    private $_studentId;
+    private $_password;
 
     /**
      * set the studentid
@@ -18,17 +20,17 @@ class Password
      *
      */
     public function SetStudentID(int $id){
-        $this->StudentId = $id;
+        $this->_studentId = $id;
     }
 
     /**
      * set password
      *
-     * @param string $password
+     * @param string $_password
      * @pre get a string as password
      */
-    public function SetPassword (string $password){
-        $this->password = $password;
+    public function SetPassword (string $_password){
+        $this->_password = $_password;
     }
 
     /**
@@ -37,7 +39,7 @@ class Password
      * @return int
      */
     public function GetStudentId():int{
-        return $this->StudentId;
+        return $this->_studentId;
     }
 
     /**
@@ -46,7 +48,7 @@ class Password
      * @return string
      */
     public function GetPassword() :string{
-        return $this->password;
+        return $this->_password;
     }
 
 }

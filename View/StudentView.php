@@ -30,6 +30,10 @@ if (!isset($_GET["LogOut"])) {
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <form class="LogOut" method="get">
+                    <?php
+                    $item = $data[1];
+                    echo "<label>$item[1] $item[2]</label>";
+                    ?>
                     <button type="submit" value="logout" name="logout" class="btn btn-default navbar-btn">Sign out
                     </button>
                 </form>
@@ -47,7 +51,7 @@ if (!isset($_GET["LogOut"])) {
             <tr>
                 <th>Student</th>
                 <?php foreach ($data[0] as $item) {
-                    echo "<th>$item</th>";
+                    echo "<th class='text-center'>$item</th>";
                 } ?>
             </tr>
             <tr>
@@ -60,13 +64,13 @@ if (!isset($_GET["LogOut"])) {
                 echo "<th scope='row'>$item[1] $item[2]</th>";
                 $loops = count($data);
                 for ($x = 1; $x < $loops; $x++) {
-                    echo "<td>";
+                    echo "<td class='text-center'>";
                     $item = $data[$x];
                     if ($item[7] > 0) {
-                        echo " <input readonly type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='$item[7]' name='$item[6]'>                            
+                        echo " <label>$item[7]</label>                    
                          ";
                     } else {
-                        echo " <input readonly type=\"number\" autocomplete='off' id='inputNumber' min='0' max='100' value='' name='$item[6]'>
+                        echo " <label></label>
                          ";
                     }
                     echo "</td>";

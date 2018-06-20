@@ -5,13 +5,18 @@
  * Class Resultaat
  *
  * Create model for Resultaat
+ *
+ * @property string $_grade -> grade of a leervak of a student
+ * @property int $_id -> id of the Resultaat
+ * @property Student $_student -> object of a student
+ * @property Leervak $_leervak -> object of a leervak
  */
 class Resultaat
 {
-    private $Grade;
-    private $ID;
-    private $Student;
-    private $LeerVak;
+    private $_grade;
+    private $_id;
+    private $_student;
+    private $_leerVak;
 
 
     /**
@@ -22,7 +27,7 @@ class Resultaat
      */
     public function SetGrade(int $grade)
     {
-        $this->Grade = $grade;
+        $this->_grade = $grade;
     }
 
     /**
@@ -31,9 +36,9 @@ class Resultaat
      * @param int $id
      * @pre int as id
      */
-    public function SetID(int $id)
+    public function SetId(int $id)
     {
-        $this->ID = $id ;
+        $this->_id = $id ;
     }
 
     /**
@@ -44,7 +49,7 @@ class Resultaat
      */
     public function SetStudent(Student $student)
     {
-        $this->Student = $student ;
+        $this->_student = $student ;
     }
 
     /**
@@ -55,7 +60,7 @@ class Resultaat
      */
     public function SetLeerVak(LeerVak $leerVak)
     {
-        $this->LeerVak = $leerVak ;
+        $this->_leerVak = $leerVak ;
     }
 
     /**
@@ -65,7 +70,7 @@ class Resultaat
      */
     public function GetGrade(): int
     {
-        return $this->Grade;
+        return $this->_grade;
     }
 
     /**
@@ -73,9 +78,9 @@ class Resultaat
      *
      * @return int
      */
-    public function GetID(): int
+    public function GetId(): int
     {
-        return $this->ID;
+        return $this->_id;
     }
 
     /**
@@ -85,7 +90,7 @@ class Resultaat
      */
     public function GetStudent(): Student
     {
-        return $this->Student;
+        return $this->_student;
     }
 
     /**
@@ -95,7 +100,7 @@ class Resultaat
      */
     public function GetLeerVak(): LeerVak
     {
-        return $this->LeerVak;
+        return $this->_leerVak;
     }
 
 }

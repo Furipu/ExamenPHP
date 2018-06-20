@@ -5,14 +5,15 @@
  * Class LeerVak
  *
  * Create model for Leervak
+ * @property string $_course -> name of the course
+ * @property  int $_id = id of the course
  */
 class LeerVak
 {
 
 
-    private $Course;
-
-    private $ID;
+    private $_course;
+    private $_id;
 
     /**
      * @param string $name
@@ -23,7 +24,7 @@ class LeerVak
      */
     public function SetCourse(string $name)
     {
-        $this->Course = $name;
+        $this->_course = $name;
     }
 
     /**
@@ -32,9 +33,9 @@ class LeerVak
      * Set property id
      * @pre recieve a int for the id
      */
-    public function SetID(int $id)
+    public function SetId(int $id)
     {
-        $this->ID = $id ;
+        $this->_id = $id ;
     }
 
     /**
@@ -45,7 +46,7 @@ class LeerVak
      */
     public function GetCourse(): string
     {
-        return $this->Course;
+        return $this->_course;
     }
 
     /**
@@ -53,9 +54,9 @@ class LeerVak
      *
      * return de course ID
      */
-    public function GetID(): int
+    public function GetId(): int
     {
-        return $this->ID;
+        return $this->_id;
     }
 
 }

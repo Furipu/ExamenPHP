@@ -37,7 +37,7 @@ class ResultaatRepository extends BaseRepository
      */
     public function GetResultForAStudent(string $email): array{
         $conn = $this->GetConnection();
-        $getResults = $conn->prepare("SELECT student.StudentID, student.Voornaam, student.Naam, student.IsAdmin, leervak.LeerVakID, leervak.Naam, resultaat.ResultaatID,  resultaat.cijfer
+        $getResults = $conn->prepare("SELECT student.StudentID, student.Voornaam, student.Naam  , student.IsAdmin, leervak.LeerVakID, leervak.Naam, resultaat.ResultaatID,  resultaat.cijfer
           FROM resultaat inner join student
           on resultaat.studentid = student.studentid
           inner join leervak

@@ -34,6 +34,12 @@ if (empty($_POST["submit"])) {
             <input type="password" class="form-control" name="paswoord" required placeholder="Enter Password">
             <label  for="adminInput">Admin</label>
             <input type="checkbox" class="left" name="admin"  placeholder="Is Admin?" >
+            <div class="radio">
+                <label><input type="radio" required value="isstudent" name="isadminorstudent">Student</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" required value="isadmin" name="isadminorstudent">Administrator</label>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary" name="submit" >Save</button>
         <button id="resetButton" class="btn btn-primary" type="reset" name="reset" >Cancel</button>

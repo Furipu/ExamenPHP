@@ -47,7 +47,7 @@ class ResultaatService
         $this->RawList = $this->repo->GetAllResults();
         foreach ($this->RawList as $value) {
             $student = new Student();
-            $student->SetID($value["StudentID"]);
+            $student->SetId($value["StudentID"]);
             $student->SetFirstName($value["Voornaam"]);
             $student->SetName($value["Naam"]);
             if ($value["IsAdmin"] === "0"){
@@ -57,10 +57,10 @@ class ResultaatService
             }
 
             $leervak = new LeerVak();
-            $leervak->SetID($value["LeerVakID"]);
+            $leervak->SetId($value["LeerVakID"]);
             $leervak->SetCourse($value[5]);
             $resultaat = new Resultaat();
-            $resultaat->SetID($value["ResultaatID"]);
+            $resultaat->SetId($value["ResultaatID"]);
             $resultaat->SetGrade($value["cijfer"]);
             $resultaat->SetStudent($student);
             $resultaat->SetLeerVak($leervak);
@@ -86,7 +86,7 @@ class ResultaatService
         $this->RawList = $this->repo->GetResultForAStudent($email);
         foreach ($this->RawList as $value) {
             $student = new Student();
-            $student->SetID($value["StudentID"]);
+            $student->SetId($value["StudentID"]);
             $student->SetFirstName($value["Voornaam"]);
             $student->SetName($value["Naam"]);
             if ($value["IsAdmin"] === "0"){
@@ -95,10 +95,10 @@ class ResultaatService
                 $student->SetIsAdmin(true);
             }
             $leervak = new LeerVak();
-            $leervak->SetID($value["LeerVakID"]);
+            $leervak->SetId($value["LeerVakID"]);
             $leervak->SetCourse($value[5]);
             $resultaat = new Resultaat();
-            $resultaat->SetID($value["ResultaatID"]);
+            $resultaat->SetId($value["ResultaatID"]);
             $resultaat->SetGrade($value["cijfer"]);
             $resultaat->SetStudent($student);
             $resultaat->SetLeerVak($leervak);

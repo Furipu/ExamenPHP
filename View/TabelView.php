@@ -33,6 +33,7 @@ if (!isset($_GET["LogOut"])) {
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <form class="LogOut" method="get">
+                    <label>Administrator</label>
                     <button type="submit" value="logout" name="logout" class="btn btn-default navbar-btn">Sign out
                     </button>
                 </form>
@@ -43,7 +44,7 @@ if (!isset($_GET["LogOut"])) {
 
 <div id="StudentDiv">
     <form action="NewStudentView.php">
-        <button type="submit" class="btn btn-default">New Student</button>
+        <button type="submit" class="btn btn-default">New Member</button>
     </form>
 </div>
 <div id="VakDiv">

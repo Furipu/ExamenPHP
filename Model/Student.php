@@ -5,15 +5,20 @@
  * Class Student
  *
  * Create model for Student
+ * @property string $_firstName -> first name of a student
+ * @property string $_name -> last name of a student
+ * @property string $_email -> email of a student
+ * @property int $_id -> id of a student
+ * @property boolean $_isAdmin -> boolean to check if person is admin or student
  */
 class Student
 {
 
-    private $FirstName;
-    private $Name;
-    private $Email;
-    private $ID;
-    private $IsAdmin;
+    private $_firstName;
+    private $_name;
+    private $_email;
+    private $_id;
+    private $_isAdmin;
 
     /**
      * set firstname of student
@@ -22,7 +27,7 @@ class Student
      * @pre firstname as a string
      */
     public function SetFirstName(string $firstName){
-        $this->FirstName = $firstName;
+        $this->_firstName = $firstName;
     }
 
     /**
@@ -32,7 +37,7 @@ class Student
      * #pre name as a string
      */
     public function SetName(string $name){
-        $this->Name = $name;
+        $this->_name = $name;
     }
 
     /**
@@ -42,7 +47,7 @@ class Student
      * @pre email as string
      */
     public function SetEmail(string $email){
-        $this->Email = $email;
+        $this->_email = $email;
     }
 
     /**
@@ -51,9 +56,9 @@ class Student
      * @param int $id
      * @pre id as int
      */
-    public function SetID(int $id)
+    public function SetId(int $id)
     {
-        $this->ID = $id ;
+        $this->_id = $id ;
     }
 
     /**
@@ -63,7 +68,7 @@ class Student
      * @pre isadmin as bool
      */
     public function SetIsAdmin(bool $isAdmin){
-        $this->IsAdmin = $isAdmin;
+        $this->_isAdmin = $isAdmin;
     }
 
     /**
@@ -72,7 +77,7 @@ class Student
      * @return string
      */
     public function GetFirstName():string {
-        return $this->FirstName;
+        return $this->_firstName;
     }
 
     /**
@@ -81,7 +86,7 @@ class Student
      * @return string
      */
     public function GetName():string{
-        return $this->Name;
+        return $this->_name;
     }
 
     /**
@@ -90,7 +95,7 @@ class Student
      * @return string
      */
     public function GetEmail():string{
-        return $this->Email;
+        return $this->_email;
     }
 
     /**
@@ -98,9 +103,9 @@ class Student
      *
      * @return int
      */
-    public function GetID(): int
+    public function GetId(): int
     {
-        return $this->ID;
+        return $this->_id;
     }
 
     /**
@@ -109,6 +114,6 @@ class Student
      * @return mixed
      */
     public function GetIsAdmin(){
-        return $this->IsAdmin;
+        return $this->_isAdmin;
     }
 }

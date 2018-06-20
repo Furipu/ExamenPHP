@@ -33,7 +33,7 @@ class StudentService
         $newStudent->SetFirstName($student["voornaam"]);
         $newStudent->SetName($student["naam"]);
         $newStudent->SetEmail($student["email"]);
-        if ($student["admin"] === "on"){
+        if ($student["isadminorstudent"] === "isadmin"){
             $newStudent->SetIsAdmin(true);
         }else{
             $newStudent->SetIsAdmin(false);
