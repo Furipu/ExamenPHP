@@ -61,7 +61,8 @@ if (!isset($_GET["LogOut"])) {
             <thead>
             <tr>
                 <th>Student</th>
-                <?php foreach ($data[0] as $item) {
+                <?php
+                foreach ($data[0] as $item) {
                     echo "<th>$item</th>";
                 } ?>
             </tr>
